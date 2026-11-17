@@ -1,0 +1,40 @@
+
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
+      navigatingTo="onNavigatingTo">
+
+    <ActionBar title="Registrar Pokemon" />
+
+    <ScrollView>
+        <StackLayout padding="20" spacing="12">
+
+            <Label text="Nuevo Pokemon"
+                   fontSize="24"
+                   fontWeight="bold"
+                   color="red" />
+
+            <Label text="Nombre:" />
+
+            <TextField id="campoNombre"
+                       hint="Ejemplo: Pikachu" />
+
+            <Label text="Tipo:" />
+
+            <TextField id="campoTipo"
+                       hint="Ejemplo: Electrico" />
+
+            <Label text="Nivel:" />
+
+            <TextField id="campoNivel"
+                       hint="Ejemplo: 25"
+                       keyboardType="number" />
+
+            <Button text="Guardar Pokemon"
+                    tap="guardarPokemon" />
+
+            <Button text="Cancelar"
+                    tap="cancelar" />
+
+        </StackLayout>
+    </ScrollView>
+
+</Page>
