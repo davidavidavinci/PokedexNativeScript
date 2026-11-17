@@ -3,19 +3,19 @@ import {
     Frame,
     Page,
     TextField,
-    NavigatedData,
-    alert
+    EventData,
+    Dialogs
 } from '@nativescript/core';
 
-import { agregarPokemon } from './pokemon';
+import {
+    agregarPokemon,
+    existePokemon
+} from './pokemon';
 
-let pagina: Page;
+// Guardar Pokemon
+export async function guardarPokemon(args: EventData) {
 
-export function onNavigatingTo(args: NavigatedData) {
-    pagina = args.object as Page;
-}
-
-export async function guardarPokemon() {
+    const pagina = args.object.page as Page;
 
     const campoNombre =
         pagina.getViewById<TextField>('campoNombre');
@@ -26,48 +26,81 @@ export async function guardarPokemon() {
     const campoNivel =
         pagina.getViewById<TextField>('campoNivel');
 
-    const nombre =
-        (campoNombre.text || '').trim();
+    const nombre = (campoNombre.text || '').trim();
 
-    const tipo =
-        (campoTipo.text || '').trim();
+    const tipo = (campoTipo.text || '').trim();
 
-    const textoNivel =
-        (campoNivel.text || '').trim();
+    const textoNivel = (campoNivel.text || '').trim();
 
-    // Validar que los campos no esten vacios
+    // Validar campos vacios
     if (nombre === '' ||
         tipo === '' ||
         textoNivel === '') {
 
-        await alert('Debe completar todos los campos.');
+        await Dialogs.alert({
+            title: 'Datos incompletos',
+            message: 'Debe completar todos los campos.',
+            okButtonText: 'Aceptar'
+        });
+
         return;
     }
 
-    // Convertir el nivel a numero
+    // Validar duplicados
+    if (existePokemon(nombre)) {
+
+        await Dialogs.alert({
+            title: 'Pokemon duplicado',
+            message: 'Este Pokemon ya esta registrado.',
+            okButtonText: 'Aceptar'
+        });
+
+        return;
+    }
+
+    // Validar nivel
     const nivel = Number(textoNivel);
 
-    // Validar que el nivel este entre 1 y 100
     if (!Number.isInteger(nivel) ||
         nivel < 1 ||
         nivel > 100) {
 
-        await alert(
-            'El nivel debe ser un numero entre 1 y 100.'
-        );
+        await Dialogs.alert({
+            title: 'Nivel incorrecto',
+            message: 'El nivel debe estar entre 1 y 100.',
+            okButtonText: 'Aceptar'
+        });
+
         return;
     }
 
-    // Agregar el Pokemon
-    agregarPokemon(nombre, tipo, nivel);
+    // Guardar Pokemon en JSON
+    try {
 
-    // Mostrar confirmacion
-    await alert('Pokemon registrado correctamente.');
+        agregarPokemon(nombre, tipo, nivel);
 
-    // Regresar a la pantalla principal
-    Frame.topmost().goBack();
+        await Dialogs.alert({
+            title: 'Registro exitoso',
+            message: nombre + ' fue guardado en JSON.',
+            okButtonText: 'Aceptar'
+        });
+
+        Frame.topmost().goBack();
+
+    } catch (error) {
+
+        console.log('Error al guardar JSON:', error);
+
+        await Dialogs.alert({
+            title: 'Error al guardar',
+            message: 'No se pudo guardar el Pokemon.',
+            okButtonText: 'Aceptar'
+        });
+    }
 }
 
+// Cancelar
 export function cancelar() {
+
     Frame.topmost().goBack();
 }

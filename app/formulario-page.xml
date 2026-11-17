@@ -1,40 +1,61 @@
 
-<Page xmlns="http://schemas.nativescript.org/tns.xsd"
-      navigatingTo="onNavigatingTo">
+<Page xmlns="http://schemas.nativescript.org/tns.xsd">
 
-    <ActionBar title="Registrar Pokemon" />
+    <ActionBar title="Registrar Pokemon"
+               backgroundColor="#D62828"
+               color="white" />
 
-    <ScrollView>
+    <ScrollView backgroundColor="#F5F5F5">
+
         <StackLayout padding="20" spacing="12">
 
             <Label text="Nuevo Pokemon"
-                   fontSize="24"
+                   fontSize="25"
                    fontWeight="bold"
-                   color="red" />
+                   color="#D62828" />
 
-            <Label text="Nombre:" />
+            <Label text="Complete los siguientes datos:"
+                   fontSize="15"
+                   color="#555555" />
+
+            <Label text="Nombre del Pokemon:"
+                   fontSize="17" />
 
             <TextField id="campoNombre"
-                       hint="Ejemplo: Pikachu" />
+                       hint="Ejemplo: Pikachu"
+                       backgroundColor="white"
+                       padding="12" />
 
-            <Label text="Tipo:" />
+            <Label text="Tipo del Pokemon:"
+                   fontSize="17" />
 
             <TextField id="campoTipo"
-                       hint="Ejemplo: Electrico" />
+                       hint="Ejemplo: Electrico"
+                       backgroundColor="white"
+                       padding="12" />
 
-            <Label text="Nivel:" />
+            <Label text="Nivel del Pokemon:"
+                   fontSize="17" />
 
             <TextField id="campoNivel"
-                       hint="Ejemplo: 25"
-                       keyboardType="number" />
+                       hint="Ingrese un nivel de 1 a 100"
+                       keyboardType="number"
+                       backgroundColor="white"
+                       padding="12" />
 
             <Button text="Guardar Pokemon"
-                    tap="guardarPokemon" />
+                    tap="guardarPokemon"
+                    backgroundColor="#D62828"
+                    color="white"
+                    marginTop="15" />
 
             <Button text="Cancelar"
-                    tap="cancelar" />
+                    tap="cancelar"
+                    backgroundColor="#777777"
+                    color="white" />
 
         </StackLayout>
+
     </ScrollView>
 
 </Page>

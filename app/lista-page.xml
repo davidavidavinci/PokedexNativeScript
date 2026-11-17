@@ -2,44 +2,35 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd"
       navigatingTo="onNavigatingTo">
 
-    <ActionBar title="Mi Pokedex" />
-
-    <GridLayout rows="auto, auto, *"
-                padding="15">
-
-        <Label row="0"
-               text="Mis Pokemon"
-               fontSize="25"
-               fontWeight="bold"
-               color="red" />
-
-        <B
-<Page xmlns="http://schemas.nativescript.org/tns.xsd"
-      navigatingTo="onNavigatingTo">
-
     <ActionBar title="Mi Pokedex"
                backgroundColor="#D62828"
                color="white" />
 
-    <GridLayout rows="auto, auto, *"
+    <GridLayout rows="auto, auto, auto, *"
                 padding="15"
                 backgroundColor="#F5F5F5">
 
         <Label row="0"
-               text="Mis Pokemon registrados"
-               fontSize="22"
+               text="Mis Pokemon"
+               fontSize="26"
                fontWeight="bold"
-               color="#222222"
-               marginBottom="15" />
+               color="#D62828"
+               marginBottom="10" />
 
-        <Button row="1"
-                text="Agregar Pokemon"
+        <Label row="1"
+               text="{{ total }}"
+               fontSize="16"
+               color="#333333"
+               marginBottom="10" />
+
+        <Button row="2"
+                text="Registrar Pokemon"
                 tap="abrirFormulario"
                 backgroundColor="#D62828"
                 color="white"
                 marginBottom="15" />
 
-        <ListView row="2"
+        <ListView row="3"
                   items="{{ pokemones }}"
                   backgroundColor="#F5F5F5">
 
@@ -50,48 +41,16 @@
                              backgroundColor="white">
 
                     <Label text="{{ nombre }}"
-                           fontSize="20"
+                           fontSize="21"
                            fontWeight="bold"
                            color="#D62828" />
 
-                    <Label text="{{ tipo }}"
-                           fontSize="16"
-                           color="#333333" />
-
-                    <Label text="{{ nivel }}"
+                    <Label text="{{ detalle }}"
                            fontSize="16"
                            color="#333333" />
 
                 </StackLayout>
 
-            </ListView.itemTemplate>
-
-        </ListView>
-
-    </GridLayout>
-
-</Page>
-utton row="1"
-                text="Agregar Pokemon"
-                tap="abrirFormulario" />
-
-        <ListView row="2"
-                  items="{{ pokemones }}">
-
-            <ListView.itemTemplate>
-                <StackLayout padding="12">
-
-                    <Label text="{{ nombre }}"
-                           fontSize="20"
-                           fontWeight="bold" />
-
-                    <Label text="{{ tipo }}"
-                           fontSize="16" />
-
-                    <Label text="{{ nivel }}"
-                           fontSize="16" />
-
-                </StackLayout>
             </ListView.itemTemplate>
 
         </ListView>
