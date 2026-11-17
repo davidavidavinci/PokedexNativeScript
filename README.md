@@ -34,54 +34,59 @@ app/
   formulario-page.xml
   formulario-page.ts
 
-## Instalación
+## Instalacion
+1. Instalar Node.js, JDK y Android SDK.
+2. Instalar NativeScript CLI:
 
-Instalar Node.js, JDK y Android SDK.
+   npm install -g nativescript
 
-Instalar NativeScript:
+3. Instalar dependencias del proyecto:
 
-npm install -g nativescript
+   npm install
 
-Descargar el proyecto e instalar dependencias:
+4. Verificar el entorno:
 
-npm install
+   ns doctor android
 
-Verificar el entorno:
+## Ejecucion
+1. Iniciar un emulador Android.
+2. Ejecutar:
 
-ns doctor android
+   ns run android
 
-## Ejecución
-
-Iniciar el emulador Android.
-
-Ejecutar:
-
-ns run android
+## Estructura
+- app.ts: inicio de la aplicacion
+- app-root.xml: pantalla inicial
+- pokemon.ts: modelo y lista de Pokemon
+- lista-page.xml: interfaz del listado
+- lista-page.ts: logica del listado
+- formulario-page.xml: formulario
+- formulario-page.ts: validaciones y registro
 
 ## Funcionalidades
+- Registro de Pokemon
+- Listado dinamico
+- Navegacion entre dos pantallas
+- Validacion de campos
+- Validacion de niveles
+- Control de nombres duplicados
+- Contador de Pokemon
 
-- Registrar Pokémon
-- Consultar Pokémon registrados
-- Validar los campos del formulario
-- Validar niveles entre 1 y 100
-- Navegar entre pantallas
-- Mostrar registros dinámicamente
+## Almacenamiento de datos
 
-## Funcionamiento
+La aplicacion utiliza un archivo pokemones.json
+para almacenar los Pokemon registrados.
 
-La pantalla principal muestra los Pokémon
-mediante ListView.
+El archivo se guarda en el almacenamiento
+privado de la aplicacion mediante NativeScript.
 
-La pantalla del formulario permite ingresar
-nombre, tipo y nivel.
-
-Los datos se almacenan temporalmente
-mediante ObservableArray.
+Al iniciar la aplicacion, los registros se
+cargan automaticamente desde el JSON.
 
 ## Limitaciones
 
-Los datos no son persistentes.
-Al reiniciar la aplicación, los registros
-pueden perderse.
-
-No se utiliza una base de datos ni API REST.
+- Los datos se almacenan localmente.
+- No se utiliza base de datos ni API REST.
+- Los datos no se sincronizan entre dispositivos.
+- Al desinstalar la aplicacion se pueden perder
+  los registros guardados.
