@@ -9,6 +9,12 @@ NativeScript y TypeScript.
 Permite registrar Pokémon y consultar
 los registros desde una interfaz móvil.
 
+## Integrantes
+- David Chang Castañeda
+- Windell Urroz Cortes
+- Enzo Bejarano Mejias
+
+
 ## Herramientas utilizadas
 
 - NativeScript
