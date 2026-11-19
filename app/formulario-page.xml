@@ -19,28 +19,33 @@
                    color="#555555" />
 
             <Label text="Nombre del Pokemon:"
-                   fontSize="17" />
+                   fontSize="17"
+                   color="#010205"/>
+
 
             <TextField id="campoNombre"
                        hint="Ejemplo: Pikachu"
-                       backgroundColor="white"
+                       backgroundColor="black"
                        padding="12" />
 
             <Label text="Tipo del Pokemon:"
-                   fontSize="17" />
+                   fontSize="17" 
+                   color="#010205"/>
 
             <TextField id="campoTipo"
                        hint="Ejemplo: Electrico"
-                       backgroundColor="white"
+                       backgroundColor="black"
                        padding="12" />
 
             <Label text="Nivel del Pokemon:"
-                   fontSize="17" />
+                   fontSize="17" 
+                   color="#010205"/>
+
 
             <TextField id="campoNivel"
                        hint="Ingrese un nivel de 1 a 100"
                        keyboardType="number"
-                       backgroundColor="white"
+                       backgroundColor="black"
                        padding="12" />
 
             <Button text="Guardar Pokemon"
